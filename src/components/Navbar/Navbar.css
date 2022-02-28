@@ -1,0 +1,13 @@
+.navbar {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 150px;
+    align-items: center;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 1px 2px 5px 1px grey;
+}
+
+.right-header {
+    cursor: pointer;
+}
