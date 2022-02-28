@@ -1,6 +1,7 @@
 import React from 'react';
-import Navbar from './components/Navbar/Navbar';
 import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import Booking from './components/Booking/Booking';
 
 
 function App() {
@@ -9,6 +10,10 @@ function App() {
       <header>
         <Navbar />
       </header>
+
+      <div>
+        <Booking />
+      </div>
     </div>
   );
 }

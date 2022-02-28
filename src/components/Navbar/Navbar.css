@@ -11,3 +11,10 @@
 .right-header {
     cursor: pointer;
 }
+
+@media screen and (max-width: 640px) {
+    .navbar {
+        display: flex;
+        padding: 0 30px;
+    }
+}
