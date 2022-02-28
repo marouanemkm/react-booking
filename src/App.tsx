@@ -11,7 +11,7 @@ function App() {
         <Navbar />
       </header>
 
-      <div>
+      <div className='booking-picker'>
         <Booking />
       </div>
     </div>

@@ -1,0 +1,16 @@
+.calendar {
+    display: block;
+}
+.calendar-title {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.select-date {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.datepicker-label {
+    margin-bottom: 10px;
+}
