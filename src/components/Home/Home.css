@@ -1,0 +1,14 @@
+.home {
+    background: url('https://media.disneylandparis.com/d4th/fr-fr/images/n018927_2021oct13_world_castle-sleeping-beauty-castle-club_5-2_tcm808-226279.jpg?w=1920') center;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.home-title {
+    margin: 150px auto;
+    color: white;
+    font-size: 30px;
+    
+}
