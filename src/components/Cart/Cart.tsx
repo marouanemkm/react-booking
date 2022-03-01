@@ -3,7 +3,9 @@ import { useSelector } from 'react-redux';
 
 export default function Cart() {
 
-    const days = useSelector(state: any => state.DateReducer);
+    // const cart = useSelector((state): any => {
+    //     ...state.CartReducer,
+    // });
 
     return (
         <div>

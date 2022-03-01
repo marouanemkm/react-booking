@@ -8,34 +8,35 @@ export default function Booking() {
     
     const [startDate, setStartDate] = useState<Date>(new Date());
     const [endDate, setEndDate] = useState<Date>(new Date());
-    const [launchFunction, setLaunchFunction] = useState<boolean>(false);
+    const [nights, setNights] = useState<Number>(0);
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if ((endDate.getFullYear() - startDate.getFullYear() >= 0) && (endDate.getMonth() - startDate.getMonth() >= 0) && (endDate.getDate() - startDate.getDate() >= 0)) {
-            setLaunchFunction(true);
+        if (endDate >= startDate) {
+            let days: number = endDate.getTime() - startDate.getTime();
+            setNights(Math.trunc(days / (1000 * 3600 * 24)) + 1);       
         } else {
-            setLaunchFunction(false);
+            alert('Veuillez choisir une date de départ inférieur à la date de fin')           
         }
     }, [startDate, endDate]);
 
     const handleStartDate = (e: Date): void => {
         setStartDate(e);
-        dispatch({
-            type: 'start',
-            payload: startDate,
-        });
+        // dispatch({
+        //     type: 'start',
+        //     payload: startDate,
+        // });
     }
 
     const handleEndDate = (e: Date): void => {
-        if (launchFunction) {
+        // if (launchFunction) {
             setEndDate(e);
-            dispatch({
-                type: 'end',
-                payload: endDate,
-            });
-        }
+            // dispatch({
+            //     type: 'end',
+            //     payload: endDate,
+            // });
+        // }
     }
     
     return (

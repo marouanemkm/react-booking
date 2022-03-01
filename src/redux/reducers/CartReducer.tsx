@@ -2,7 +2,7 @@ const INITIAL_STATE = {
     cart: 0
 }
 
-function AddCartReducer(state = INITIAL_STATE, action: any)  {
+function CartReducer(state = INITIAL_STATE, action: any)  {
     
     switch(action.type) {
         case 'ADDCART': {
@@ -16,4 +16,4 @@ function AddCartReducer(state = INITIAL_STATE, action: any)  {
     return state;
 }
 
-export default AddCartReducer;
+export default CartReducer;

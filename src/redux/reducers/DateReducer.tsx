@@ -2,7 +2,7 @@ const INITIAL_STATE = {
     days: 0,
 }
 
-function AddCartReducer(state = INITIAL_STATE, action: any)  {
+function DateReducer(state = INITIAL_STATE, action: any)  {
     
     switch(action.type) {
         case 'adddays': {
@@ -13,7 +13,7 @@ function AddCartReducer(state = INITIAL_STATE, action: any)  {
         }
     }
     
-    return state
+    return state;
 }
 
-export default AddCartReducer
+export default DateReducer;
