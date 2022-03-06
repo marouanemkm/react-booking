@@ -1,14 +1,14 @@
 const INITIAL_STATE = {
-    days: 0,
+    nights: 0,
 }
 
 function DateReducer(state = INITIAL_STATE, action: any)  {
     
     switch(action.type) {
-        case 'adddays': {
+        case 'addnights': {
             return {
                 ...state,
-                days: action.payload
+                nights: action.payload
             }
         }
     }
