@@ -9,3 +9,14 @@
     margin: 50px auto;
     text-align: center;
 }
+
+.booking-picker {
+    margin-bottom: 50px;
+}
+
+.hotels-component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 150px 50px;
+}

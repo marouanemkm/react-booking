@@ -50,7 +50,6 @@ export default function Booking() {
                     <p className='datepicker-label'>Date de fin du séjour</p>
                     <DatePicker onChange={handleEndDate} value={endDate} isOpen={false} />
                 </div>
-                <button onClick={handleNights}>Valider</button>
             </div>
         </div>
     );
