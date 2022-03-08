@@ -16,11 +16,13 @@ function DateReducer(state = INITIAL_STATE, action: any)  {
         case 'addnights': {
             return {
                 ...state,
-                nights: action.payload
+                nights: action.nights,
+                startDate: action.startDate,
+                endDate: action.endDate,
             }
         }
     }
-    
+
     return state;
 }
 
