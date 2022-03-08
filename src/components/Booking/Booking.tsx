@@ -10,7 +10,7 @@ export default function Booking() {
     
     const [startDate, setStartDate] = useState<Date>(new Date());
     const [endDate, setEndDate] = useState<Date>(new Date());
-    const [nights, setNights] = useState<Number>(0);
+    const [nights, setNights] = useState<Number | undefined>(undefined);
     const [error, setError] = useState<string>('');
 
     const startDateFinal = useSelector((state: RootState): any => { return state.date.startDate });
@@ -21,8 +21,8 @@ export default function Booking() {
 
     useEffect(() => {
         let numberOfNights: number = Math.trunc((endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24));
-        if (numberOfNights < 0) setNights(numberOfNights);
-        
+        if (numberOfNights > 0) setNights(numberOfNights);
+        else setNights(undefined);
     }, [startDate, endDate]);
 
     const handleStartDate = (e: Date): void => setStartDate(e);
@@ -35,12 +35,11 @@ export default function Booking() {
         dispatch({ type: 'addcart', hotelName: hotel.name, hotelPrice: hotel.price, showName: 'test', showPrice: 0 });
         if (!startDateFinal && !endDateFinal) {
             setError('Veuillez chosir une date');
-            console.log('non');
-            console.log(startDateFinal, endDateFinal);
+        } else if(!nights) {
+            setError('Veuillez choisir une date valide');
         } else {
             setError('');
-            console.log('oui');
-            // navigate('/cart');
+            navigate('/shows');
         }
     }
     

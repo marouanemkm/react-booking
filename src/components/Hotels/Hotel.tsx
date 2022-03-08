@@ -1,6 +1,6 @@
 import "./Hotel.css";
 import React from 'react';
-import hotels from '../../data';
+import hotels from '../../data/hotels';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 

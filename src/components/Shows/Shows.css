@@ -1,0 +1,4 @@
+.shows-cards {
+    display: flex;
+    flex-direction: row;
+}

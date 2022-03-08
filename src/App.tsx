@@ -6,6 +6,7 @@ import Home from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import Booking from './components/Booking/Booking';
 import Hotel from "./components/Hotels/Hotel";
+import Shows from './components/Shows/Shows';
 import Cart from './components/Cart/Cart';
 
 
@@ -23,7 +24,7 @@ function App() {
 
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/show' element={<div>hey</div>} />
+          <Route path='/shows' element={<Shows />} />
           <Route path='/cart' element={<Cart />} />
         </Routes>
 
