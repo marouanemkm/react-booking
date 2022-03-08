@@ -1,29 +1,33 @@
-import React from 'react';
 import './App.css';
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Home from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import Booking from './components/Booking/Booking';
-import Home from './components/Home/Home';
 import Hotel from "./components/Hotels/Hotel";
+import Cart from './components/Cart/Cart';
 
 
 function App() {
+
+  const [cartPrice, setCartPrice] = useState<any>(0);
+
   return (
-    <div className="App">
-      <header>
-        <Navbar />
-      </header>
+    <BrowserRouter>
+      <div className="App">
 
-      <div>
-        <Home />
-      </div>
+        <header>
+          <Navbar />
+        </header>
 
-      <div className='booking-picker'>
-        <Booking />
-        <div className="hotels-component">
-          <Hotel />
-        </div>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/cart' element={<Cart />} />
+        </Routes>
+
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 

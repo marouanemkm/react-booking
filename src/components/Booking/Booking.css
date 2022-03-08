@@ -14,3 +14,10 @@
 .datepicker-label {
     margin-bottom: 10px;
 }
+
+.hotels-component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 150px 50px;
+}

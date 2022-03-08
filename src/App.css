@@ -5,18 +5,9 @@
     font-family: 'Lato', Helvetica, sans-serif;
 }
 
-.booking-picker {
-    margin: 50px auto;
-    text-align: center;
-}
 
-.booking-picker {
+
+/* .booking-picker {
     margin-bottom: 50px;
-}
+} */
 
-.hotels-component {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 150px 50px;
-}
