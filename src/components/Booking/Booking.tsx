@@ -20,8 +20,12 @@ export default function Booking() {
     const navigate = useNavigate();
 
     useEffect(() => {
+        let startTime = startDate.getTime().toString().substring(0, 5);
+        let endTime = endDate.getTime().toString().substring(0, 5);
+        let todayTime = Date.now().toString().substring(0, 5);
         let numberOfNights: number = Math.trunc((endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24));
-        if (numberOfNights > 0) setNights(numberOfNights);
+
+        if (numberOfNights > 0 && (startTime > todayTime && endTime > todayTime)) setNights(numberOfNights);
         else setNights(undefined);
     }, [startDate, endDate]);
 
@@ -31,12 +35,13 @@ export default function Booking() {
 
     dispatch({ type: 'addnights', nights: nights, startDate: startDate, endDate: endDate });
 
-    const handleNights = (hotel: any) => {
-        dispatch({ type: 'addcart', hotelName: hotel.name, hotelPrice: hotel.price, showName: 'test', showPrice: 0 });
+    const handleHotel = (hotel: any) => {
+        dispatch({ type: 'addhotel', hotelName: hotel.name, hotelPrice: hotel.price });
+
         if (!startDateFinal && !endDateFinal) {
             setError('Veuillez chosir une date');
         } else if(!nights) {
-            setError('Veuillez choisir une date valide');
+            setError('Veuillez choisir une date valide ou supérieur à la date actuelle');
         } else {
             setError('');
             navigate('/shows');
@@ -57,10 +62,10 @@ export default function Booking() {
                         <DatePicker onChange={handleEndDate} value={endDate} isOpen={false} />
                     </div>
                 </div>
-                <h4 style={{color: 'red'}}>{error}</h4>
+                <h5 style={{color: 'red', margin: '20px'}}>{error}</h5>
             </div>
             <div className="hotels-component">
-                <Hotel handleHotel={handleNights}/>
+                <Hotel handleHotel={handleHotel}/>
             </div>
         </>
     );

@@ -15,11 +15,16 @@ const INITIAL_STATE: CartState = {
 function CartReducer(state = INITIAL_STATE, action: any)  {
     
     switch(action.type) {
-        case 'addcart': {
+        case 'addhotel': {
             return {
                 ...state,
                 hotelName: action.hotelName,
                 hotelPrice: action.hotelPrice,
+            }
+        }
+        case 'addshow': {
+            return {
+                ...state,
                 showName: action.showName,
                 showPrice: action.showPrice,
             }

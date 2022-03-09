@@ -1,14 +1,9 @@
 import "./Hotel.css";
-import React from 'react';
 import hotels from '../../data/hotels';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
 export default function Hotel({handleHotel}: {handleHotel: Function}) {
-
-    const handleInfos = (item: Object) => {
-        console.log(item);
-    }
 
     return (
         <div className="hotels-cards">

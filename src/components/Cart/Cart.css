@@ -1,0 +1,27 @@
+.cart {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.cart-content {
+    margin: 50px;
+    padding: 50px;
+    border: 1px solid black;
+}
+
+.cart-infos {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.cart-date-infos {
+    font-size: 18px;
+}
+
+.start-date {
+    color: green;
+}
+
+.end-date {
+    color:red;
+}
