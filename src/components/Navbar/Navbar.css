@@ -10,11 +10,11 @@
 
 .right-header {
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
 }
 
-@media screen and (max-width: 640px) {
-    .navbar {
-        display: flex;
-        padding: 0 30px;
-    }
+.total-price-navbar {
+    font-size: .8rem;
+    margin-left: 5px;
 }

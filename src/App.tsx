@@ -8,11 +8,10 @@ import Booking from './components/Booking/Booking';
 import Hotel from "./components/Hotels/Hotel";
 import Shows from './components/Shows/Shows';
 import Cart from './components/Cart/Cart';
+import Order from './components/Order/Order';
 
 
 function App() {
-
-  const [cartPrice, setCartPrice] = useState<any>(0);
 
   return (
     <BrowserRouter>
@@ -26,6 +25,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/shows' element={<Shows />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/order' element={<Order />} />
         </Routes>
 
       </div>

@@ -2,6 +2,7 @@ import './Cart.css';
 import { useState } from 'react';
 import { RootState } from '../../redux/store';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 export default function Cart() {
 
@@ -9,6 +10,10 @@ export default function Cart() {
     const [lastName, setLastName] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [adress, setAdress] = useState<string>('');
+    const [errorMessage, setErrorMessage] = useState<string>('');
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const totalOfNights = useSelector((state: RootState): number => { return state.date.nights });
     const startDateFinal = useSelector((state: RootState): any => { return state.date.startDate });
@@ -20,19 +25,33 @@ export default function Cart() {
     const handleEmail = (e: React.ChangeEvent<HTMLInputElement>): void => setEmail(e.target.value);
     const handleAdress = (e: React.ChangeEvent<HTMLInputElement>): void => setAdress(e.target.value);
 
+    const handleForm = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (email != '') {
+            setErrorMessage('');
+            dispatch({ type: 'addorder', email: email, firstName: firstName, lastName: lastName, adress: adress });
+            dispatch({ type: 'addtotalprice', totalPrice: (cartInfos.hotelPrice + cartInfos.showPrice) * totalOfNights })
+            navigate('/order');
+        } else {
+            setErrorMessage('Le champ email est obligatoire');
+        }
+    }
+
     return (
         <div className='cart'>
             <h2>Votre panier :</h2>
-            <div className='cart-content'>
+            <div className='cart-content col-md-6'>
                 <p>Nom de l'hotel : <br /><span className='cart-infos'>{cartInfos.hotelName}</span></p>
                 <p>Nom du show : <br /><span className='cart-infos'>{cartInfos.showName}</span></p>
                 <p>Dates : <br /><span className='cart-date-infos'>Du <span className='start-date'>{startDateFinal.toLocaleDateString("fr-FR", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span> au <span className='end-date'>{endDateFinal.toLocaleDateString("fr-FR", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span></span></p>
+                <p>Prix total : <br /><span className='cart-infos'>{(cartInfos.hotelPrice + cartInfos.showPrice) * totalOfNights} €</span></p>
             </div>
             <br />
-            <form action="" className='formulaire'>
+            <form onSubmit={(e) => handleForm(e)} className='formulaire'>
                 <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Adresse Email :</label>
+                    <label htmlFor="email" className="form-label">Adresse Email * :</label>
                     <input type="email" className="form-control" id="email" placeholder="john@doe.com" onChange={(e) => handleEmail(e)} value={email} />
+                    <h5 style={{color: 'red', margin: '20px'}}>{errorMessage}</h5>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="lastname" className="form-label">Nom :</label>
@@ -42,7 +61,8 @@ export default function Cart() {
                     <label htmlFor="adress" className="form-label">Adresse postal :</label>
                     <input type="text" className="form-control" id="adress" placeholder="46 Rue de Paris 75001 PARIS" onChange={(e) => handleAdress(e)} value={adress} />
                 </div>
-                <button className="btn btn-success" >Réserver</button>
+                <button type='submit' className="btn btn-success" >Réserver</button>
+                <p style={{fontSize: '15px', fontStyle: 'italic', marginTop: '15px'}}>* : Champs requis</p>
             </form>
         </div>
     );

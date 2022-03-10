@@ -1,0 +1,27 @@
+.order-page-title {
+    margin: 50px auto;
+    text-align: center;
+}
+
+.order-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cart-order {
+    margin: 50px;
+    padding: 50px;
+    border: 1px solid black;
+    text-align: left;
+}
+
+.infos-order {
+    margin: 50px;
+    padding: 50px;
+    border: 1px solid black;
+    text-align: right;
+}
+
+.return-btn {
+    text-align: center;
+}

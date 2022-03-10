@@ -5,7 +5,48 @@
     font-family: 'Lato', Helvetica, sans-serif;
 }
 
+/* RESPONSIVE */
 
-/* .booking-picker {
-    margin-bottom: 50px;
-} */
+@media only screen and (max-width: 414px) {
+
+    .navbar {
+        display: flex !important;
+        padding: 0 30px !important;
+    }
+
+    .calendar-title {
+        font-size: 25px;
+    }
+
+    .hotels-cards {
+        flex-direction: column !important;
+    }
+
+    .shows-cards {
+        flex-direction: column !important;
+    }
+
+    .home {
+        height: 50% !important;
+    }
+
+    .home-title {
+        font-size: 25px !important;
+    }
+
+    .formulaire {
+        width: 80% !important;
+    }
+
+    .order-page-title {
+        font-size: 20px;
+    }
+
+    .order-container {
+        flex-direction: column !important;
+    }
+
+    .infos-order {
+        text-align: left !important;
+    }
+}

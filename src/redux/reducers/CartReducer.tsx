@@ -3,6 +3,7 @@ interface CartState {
     hotelPrice: number,
     showName: string,
     showPrice: number,
+    totalPrice: number,
 }
 
 const INITIAL_STATE: CartState = {
@@ -10,6 +11,7 @@ const INITIAL_STATE: CartState = {
     hotelPrice: 0,
     showName: '',
     showPrice: 0,
+    totalPrice: 0
 }
 
 function CartReducer(state = INITIAL_STATE, action: any)  {
@@ -27,6 +29,12 @@ function CartReducer(state = INITIAL_STATE, action: any)  {
                 ...state,
                 showName: action.showName,
                 showPrice: action.showPrice,
+            }
+        }
+        case 'addtotalprice': {
+            return {
+                ...state,
+                totalPrice: action.totalPrice
             }
         }
     }
