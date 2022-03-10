@@ -19,7 +19,7 @@ export default function Booking() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    useEffect(() => {
+    useEffect((): void => {
         let startTime = startDate.getTime().toString().substring(0, 5);
         let endTime = endDate.getTime().toString().substring(0, 5);
         let todayTime = Date.now().toString().substring(0, 5);
@@ -35,7 +35,7 @@ export default function Booking() {
 
     dispatch({ type: 'addnights', nights: nights, startDate: startDate, endDate: endDate });
 
-    const handleHotel = (hotel: any) => {
+    const handleHotel = (hotel: any): void => {
         dispatch({ type: 'addhotel', hotelName: hotel.name, hotelPrice: hotel.price });
 
         if (!startDateFinal && !endDateFinal) {
