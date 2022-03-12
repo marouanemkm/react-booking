@@ -36,15 +36,36 @@ export default function Cart() {
             setErrorMessage('Le champ email est obligatoire');
         }
     }
+    
 
     return (
         <div className='cart'>
             <h2>Votre panier :</h2>
             <div className='cart-content col-md-6'>
-                <p>Nom de l'hotel : <br /><span className='cart-infos'>{cartInfos.hotelName}</span></p>
-                <p>Nom du show : <br /><span className='cart-infos'>{cartInfos.showName}</span></p>
-                <p>Dates : <br /><span className='cart-date-infos'>Du <span className='start-date'>{startDateFinal.toLocaleDateString("fr-FR", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span> au <span className='end-date'>{endDateFinal.toLocaleDateString("fr-FR", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span></span></p>
-                <p>Prix total : <br /><span className='cart-infos'>{(cartInfos.hotelPrice + cartInfos.showPrice) * totalOfNights} €</span></p>
+                {
+                    cartInfos.hotelName ? 
+                    <p>
+                        Nom de l'hotel : <br /><span className='cart-infos'>{cartInfos.hotelName}</span>
+                    </p>
+                    : 
+                    <p>
+                        Panier vide !
+                    </p>
+                }
+                {
+                    cartInfos.showName != '' ? 
+                    <p>
+                        Nom du show : <br /><span className='cart-infos'>{cartInfos.showName}</span>
+                    </p> 
+                    : ''
+                }
+                {
+                    startDateFinal && endDateFinal ? 
+                    <p>
+                        Dates : <br /><span className='cart-date-infos'>Du <span className='start-date'>{startDateFinal && startDateFinal.toLocaleDateString("fr-FR", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span> au <span className='end-date'>{endDateFinal && endDateFinal.toLocaleDateString("fr-FR", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span></span>
+                    </p> 
+                    : ''
+                }
             </div>
             <br />
             <form onSubmit={(e) => handleForm(e)} className='formulaire'>
