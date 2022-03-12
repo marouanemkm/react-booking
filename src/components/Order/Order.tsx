@@ -1,4 +1,5 @@
 import './Order.css';
+import { useEffect } from 'react';
 import { RootState } from '../../redux/store';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +13,10 @@ export default function Order() {
 
     const navigate = useNavigate();
 
-    const handleReturn = () => navigate('/');
+    // Ce useEffect sert de guard afin d'empêcher d'aller sur cette page sans avoir choisis d'hôtel
+    useEffect(() => {
+        if (cartInfos.hotelName == '') navigate('/');
+    }, [])
 
     return (
         <div>

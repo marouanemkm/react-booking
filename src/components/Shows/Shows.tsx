@@ -1,4 +1,5 @@
 import './Shows.css';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { RootState } from '../../redux/store';
@@ -11,11 +12,17 @@ export default function Shows() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const totalPrice = useSelector((state: RootState): any => { return state.cart.totalPrice });
+    const cart = useSelector((state: RootState): any => { return state.cart });
 
+    // Ce useEffect sert de guard afin d'empêcher d'aller sur cette page sans avoir choisis d'hôtel
+    useEffect(() => {
+        if (cart.hotelName == '') navigate('/');
+    }, [])
+
+    // Cette fonction permet d'enregistrer le show dans le state global ainsi que son prix, pour mettre à jour le panier
     const handleShows = (show: { id: number; name: string; price: number; image: string }) => {
         dispatch({ type: "addshow", showName: show.name, showPrice: show.price });
-        dispatch({ type: "addtotalprice", totalPrice: totalPrice + show.price });
+        dispatch({ type: "addtotalprice", totalPrice: cart.totalPrice + show.price });
         navigate('/cart');
     }
 

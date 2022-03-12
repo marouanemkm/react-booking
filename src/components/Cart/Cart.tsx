@@ -1,10 +1,10 @@
 import './Cart.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { RootState } from '../../redux/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-export default function Cart() {
+function Cart() {
 
     const [firstName, setFirstName] = useState<string>('');
     const [lastName, setLastName] = useState<string>('');
@@ -42,6 +42,7 @@ export default function Cart() {
         <div className='cart'>
             <h2>Votre panier :</h2>
             <div className='cart-content col-md-6'>
+                {/* On gère ici le rendu conditionnel de chaque information du panier, pour ne pas afficher de zones vides */}
                 {
                     cartInfos.hotelName ? 
                     <p>
@@ -88,3 +89,5 @@ export default function Cart() {
         </div>
     );
 }
+
+export default React.memo(Cart);
