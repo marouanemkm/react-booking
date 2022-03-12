@@ -1,5 +1,5 @@
 import './Booking.css';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-date-picker';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,7 +7,7 @@ import { RootState } from '../../redux/store';
 import Hotel from '../Hotels/Hotel';
 import moment from 'moment'; 
 
-export default function Booking() {
+function Booking() {
     
     const [startDate, setStartDate] = useState<Date | null>(null);
     const [endDate, setEndDate] = useState<Date | null>(null);
@@ -80,3 +80,5 @@ export default function Booking() {
         </>
     );
 }
+
+export default React.memo(Booking);
