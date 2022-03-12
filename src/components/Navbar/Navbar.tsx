@@ -16,9 +16,13 @@ export default function Navbar() {
         navigate('/cart');
     }
 
+    const goToHome = () => {
+        navigate('/');
+    }
+
     return (
         <div className='navbar'>
-            <div className='left-header'>React Booking</div>
+            <div className='left-header' onClick={goToHome}>React Booking</div>
             <div className='right-header' onClick={goToCart}>
                 <FontAwesomeIcon icon={faCartShopping} />
                 <p className='total-price-navbar'>{totalPrice} €</p>

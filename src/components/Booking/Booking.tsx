@@ -11,7 +11,7 @@ function Booking() {
     
     const [startDate, setStartDate] = useState<Date | null>(null);
     const [endDate, setEndDate] = useState<Date | null>(null);
-    const [nights, setNights] = useState<Number>(1);
+    const [nights, setNights] = useState<Number>(0);
     const [error, setError] = useState<string>('');
 
     const startDateFinal = useSelector((state: RootState): any => { return state.date.startDate });
@@ -33,7 +33,6 @@ function Booking() {
 
         // Si les dates sont supérieur à la date du jour et que le nomrbe de nuits entre les deux dates n'est pas négatif ou null, c'est validé
         if (numberOfNights > 0 && (startDateConverted >= todayDate && endDateConverted >= todayDate)) setNights(numberOfNights);
-        else setNights(0);
     }, [startDate, endDate]);
 
     const handleStartDate = (e: Date): void => setStartDate(e);
