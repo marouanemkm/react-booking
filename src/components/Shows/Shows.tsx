@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { RootState } from '../../redux/store';
 import services from "../../services/services";
-import Datas from "../../types";
+import { Datas } from '../../types';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
