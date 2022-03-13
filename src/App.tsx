@@ -1,15 +1,10 @@
 import './App.css';
-import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 import Home from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
-import Booking from './components/Booking/Booking';
-import Hotel from "./components/Hotels/Hotel";
 import Shows from './components/Shows/Shows';
 import Cart from './components/Cart/Cart';
 import Order from './components/Order/Order';
-
 
 function App() {
 

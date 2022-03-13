@@ -4,7 +4,6 @@ import services from "../../services/services";
 import { Datas } from "../../types";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import axios from 'axios';
 
 export default function Hotel({handleHotel}: {handleHotel: Function}) {
 

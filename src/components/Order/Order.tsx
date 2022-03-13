@@ -22,13 +22,10 @@ export default function Order() {
     // Cette fonction vide totalement le store afin de refaire un parcours complet sans problèmes
     const handleReturn = (): void => {
         dispatch({ type: 'addnights', nights: 0, startDate: '', endDate: '' });
-
         dispatch({ type: 'addhotel', hotelName: '', hotelPrice: 0 });
         dispatch({ type: 'addshow', showName: '', showPrice: 0 });
         dispatch({ type: 'addtotalprice', totalPrice: 0 });
-
         dispatch({ type: 'addorder', email: '', firstName: '', lastName: '', adress: '' });
-
         navigate('/')
     }
 

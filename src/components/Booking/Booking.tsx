@@ -2,8 +2,7 @@ import './Booking.css';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-date-picker';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
+import { useDispatch } from 'react-redux';
 import Hotel from '../Hotels/Hotel';
 import moment from 'moment'; 
 
@@ -13,9 +12,6 @@ const Booking = () => {
     const [endDate, setEndDate] = useState<Date | null>(null);
     const [nights, setNights] = useState<number>(0);
     const [error, setError] = useState<string>('');
-
-    const startDateFinal = useSelector((state: RootState): any => { return state.date.startDate });
-    const endDateFinal = useSelector((state: RootState): any => { return state.date.endDate });
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -36,12 +32,7 @@ const Booking = () => {
     }, [startDate, endDate]);
 
     const handleStartDate = (e: Date): void => setStartDate(e);
-    const handleEndDate = (e: Date): void => setEndDate(e);
-
-    console.log(startDateFinal);
-    console.log(endDateFinal);
-    console.log(nights);
-    
+    const handleEndDate = (e: Date): void => setEndDate(e);    
 
     // Cette fonction permet de valider le choix d'une date et d'un hotel, ou bien d'afficher une erreur
     const handleHotel = (hotel: any): void => {

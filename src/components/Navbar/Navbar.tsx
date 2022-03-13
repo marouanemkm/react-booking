@@ -1,11 +1,9 @@
-import React from 'react';
 import './Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { RootState } from '../../redux/store';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
 
 export default function Navbar() {
 
@@ -28,5 +26,5 @@ export default function Navbar() {
                 <p className='total-price-navbar'>{totalPrice} €</p>
             </div>
         </div>
-    )
+    );
 }

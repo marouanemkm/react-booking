@@ -42,37 +42,37 @@
       "id": 1,
       "name": "Frozen - The Show",
       "price": 15,
-      "image": "https://media.disneylandparis.com/d4th/fr-fr/images/n015567b_2027sep30_world_disney-new-york-art-of-marvel-hotel-exterior-view-concept-art_16-9_tcm808-195183.jpg?w=360"
+      "image": "https://media.disneylandparis.com/d4th/fr-fr/images/hd13295_2050dec31_world_disney-dreams-frozen-elsa-25th_16-9_tcm808-181489.jpg?w=180"
     },
     {
         "id": 2,
         "name": "Cinderella - The Show",
         "price": 15,
-        "image": "https://media.disneylandparis.com/d4th/fr-fr/images/n015655_2_2027sep30_world_newport-bay-club-hotel-by-night_16-9_tcm808-179399.jpg?w=360"
+        "image": "https://media.disneylandparis.com/d4th/fr-fr/images/n034900_2030dec10_world_selfie-spot-2021-meet-cinderella_16-9_tcm808-223052.jpg?w=180"
     },
     {
         "id": 3,
         "name": "Lion King - The Show",
         "price": 12,
-        "image": "https://media.disneylandparis.com/d4th/fr-fr/images/n015682_2027sep30_world_disney-sequoia-lodge-exterior-view_16-9_tcm808-157880.jpg?w=360"
+        "image": "https://media.disneylandparis.com/d4th/fr-fr/images/n033892_2050dec31_world_lion-king-show_16-9_tcm808-227172.jpg?w=180"
     },
     {
         "id": 4,
         "name": "Star Wars | Darth Vader - The Show",
         "price": 17,
-        "image": "https://media.disneylandparis.com/d4th/fr-fr/images/n016142_2022sep14_world_disney-hotel-cheyenne_16-9_zoom_tcm808-220960.jpg?w=360"
+        "image": "https://media.disneylandparis.com/d4th/fr-fr/images/n025787_2022mar29_world_starport-discoveryland_16-9_tcm808-162591.jpg?w=180"
     },
     {
         "id": 5, 
         "name": "The Art Of Marvel - The Show",
         "price": 20,
-        "image": "https://media.disneylandparis.com/d4th/fr-fr/images/n016235_2028mar14_world_santa-fe-hotel-outside-by-night_16-9_tcm808-184601.jpg?w=360"
+        "image": "https://media.disneylandparis.com/d4th/fr-fr/images/n034365_2027aug25_world_selfie-spot-walt-disney-studios-marvel-thor_16-9_tcm808-222809.jpg?w=180"
     },
     {
         "id": 6,
         "name": "Mickey and Mini - The Show",
         "price": 12,
-        "image": "https://media.disneylandparis.com/d4th/fr-fr/images/n017199_2022sep14_world_ranch-davy-crockett-bungalow_16-9_tcm808-199514.jpg?w=360"
+        "image": "https://media.disneylandparis.com/d4th/fr-fr/images/n030145_2025aug10_world_mickey-mouse-sleebing-beauty-castle_16-9_tcm808-204817.jpg?w=180"
     }
   ]
 }
