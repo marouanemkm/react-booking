@@ -1,10 +1,4 @@
-interface CartState {
-    hotelName: string,
-    hotelPrice: number,
-    showName: string,
-    showPrice: number,
-    totalPrice: number,
-}
+import { CartState } from "../../types";
 
 const INITIAL_STATE: CartState = {
     hotelName: '',

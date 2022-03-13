@@ -1,9 +1,4 @@
-interface OrderState {
-    email: string,
-    firstName: string,
-    lastName: string,
-    adress: string,
-}
+import { OrderState } from "../../types";
 
 const INITIAL_STATE: OrderState = {
     email: '',

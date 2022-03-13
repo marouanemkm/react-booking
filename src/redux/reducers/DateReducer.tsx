@@ -1,8 +1,4 @@
-interface DateState {
-    nights: number,
-    startDate: any,
-    endDate: any,
-}
+import { DateState } from "../../types";
 
 const INITIAL_STATE: DateState = {
     nights: 0,

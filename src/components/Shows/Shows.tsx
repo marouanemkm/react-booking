@@ -1,13 +1,16 @@
 import './Shows.css';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { RootState } from '../../redux/store';
-import shows from '../../data/shows';
+import services from "../../services/services";
+import Datas from "../../types";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
 export default function Shows() {
+
+    const [shows, setShows] = useState<Datas[]>()
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -16,6 +19,7 @@ export default function Shows() {
 
     // Ce useEffect sert de guard afin d'empêcher d'aller sur cette page sans avoir choisis d'hôtel
     useEffect(() => {
+        services.getShows().then(res => setShows(res))
         if (cart.hotelName == '') navigate('/');
     }, [])
 
@@ -33,6 +37,7 @@ export default function Shows() {
             </div>
             <div className="shows-cards">
             {
+                shows ?
                 shows.map((item, index) => (
                     <Card style={{ width: '15rem', margin: '20px' }} key={index}>
                         <Card.Img variant="top" src={item.image} />
@@ -43,6 +48,7 @@ export default function Shows() {
                         </Card.Body>
                     </Card>
                 ))
+                : ''
             }
             </div>
             <div className='text-center'>
