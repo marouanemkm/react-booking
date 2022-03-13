@@ -15,6 +15,7 @@ function Cart() {
     const [firstNameError, setFirstNameError] = useState<string>('');
     const [lastNameError, setLastNameError] = useState<string>('');
     const [adressError, setAdressError] = useState<string>('');
+    const [error, setError] = useState<string>('');
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -44,14 +45,15 @@ function Cart() {
         if (adress == '') setAdressError('Veuillez renseigner ce champ');
         else setAdressError('');
 
+        if (cartInfos.totalPrice == 0) setError('Le panier est vide, vous ne pouvez pas commander !');
+        else setError('');
 
-        if (email != '' && firstName != '' && lastName != '' && adress != '') {
-            setEmailError('');
+
+        if (email != '' && firstName != '' && lastName != '' && adress != '' && cartInfos.totalPrice != 0) {
             dispatch({ type: 'addorder', email: email, firstName: firstName, lastName: lastName, adress: adress });
             navigate('/order');
         } 
-    }
-    
+    }    
 
     return (
         <div className='cart'>
@@ -102,6 +104,7 @@ function Cart() {
                     <input type="text" className="form-control" id="adress" placeholder="46 Rue de Paris 75001 PARIS" onChange={(e) => handleAdress(e)} value={adress} />
                     <h5 style={{color: 'red', margin: '20px'}}>{adressError}</h5>
                 </div>
+                <h5 style={{color: 'red', margin: '20px'}}>{error}</h5>
                 <button type='submit' className="btn btn-success" >Réserver</button>
                 <p style={{fontSize: '15px', fontStyle: 'italic', marginTop: '15px'}}>* : Champs requis</p>
             </form>

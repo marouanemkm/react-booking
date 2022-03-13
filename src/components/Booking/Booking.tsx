@@ -64,11 +64,11 @@ function Booking() {
                 <div className="select-date">
                     <div>
                         <p className='datepicker-label'>Date de départ du séjour</p>
-                        <DatePicker onChange={handleStartDate} value={startDate} isOpen={false} />
+                        <DatePicker onChange={(e: Date) => handleStartDate(e)} value={startDate} isOpen={false} />
                     </div>
                     <div>
                         <p className='datepicker-label'>Date de fin du séjour</p>
-                        <DatePicker onChange={handleEndDate} value={endDate} isOpen={false} />
+                        <DatePicker onChange={(e: Date) => handleEndDate(e)} value={endDate} isOpen={false} />
                     </div>
                 </div>
                 <h5 style={{color: 'red', margin: '20px'}}>{error}</h5>

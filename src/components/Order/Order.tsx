@@ -16,7 +16,7 @@ export default function Order() {
     
     // Ce useEffect sert de guard afin d'empêcher d'aller sur cette page sans avoir choisis d'hôtel
     useEffect(() => {
-        if (cartInfos.hotelName == '' || orderInfos.email == '' || !startDateFinal) navigate('/');
+        if (cartInfos.hotelName == '' || orderInfos.email == '' || !startDateFinal) navigate('/cart');
     });
 
     // Cette fonction vide totalement le store afin de refaire un parcours complet sans problèmes
@@ -62,7 +62,7 @@ export default function Order() {
                         </div>
                     </div>
                     <div className='return-btn'>
-                        <button onClick={handleReturn} className='btn btn-warning'>Retour à l'accueil</button>
+                        <button onClick={() => handleReturn()} className='btn btn-warning'>Retour à l'accueil</button>
                     </div>
                 </>
                 : ''
