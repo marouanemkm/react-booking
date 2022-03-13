@@ -27,7 +27,7 @@ const Booking = () => {
         if (startDate != null && endDate != null) numberOfNights = Math.trunc((endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24));
 
         // Si les dates sont supérieur à la date du jour et que le nomrbe de nuits entre les deux dates n'est pas négatif ou null, c'est validé
-        if (numberOfNights > 0 && (startDateConverted >= todayDate && endDateConverted >= todayDate)) setNights(numberOfNights);
+        if (numberOfNights > 0 && (startDateConverted >= todayDate && endDateConverted >= todayDate && startDateConverted < endDateConverted)) setNights(numberOfNights);
         dispatch({ type: 'addnights', nights: nights, startDate: startDate, endDate: endDate });
     }, [startDate, endDate]);
 
@@ -44,14 +44,14 @@ const Booking = () => {
         // Ici on gère les erreurs concernant les dates
         if (!startDate && !endDate) {
             setError('Veuillez chosir une date');
-        } else if(!nights) {
+        } else if(nights == 0) {
             setError('Veuillez choisir une date valide ou supérieur à la date actuelle');
         } else {
             setError('');
             navigate('/shows');
         }
     }
-    
+
     return (
         <>
             <div className='calendar'>
