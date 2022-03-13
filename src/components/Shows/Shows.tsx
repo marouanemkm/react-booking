@@ -21,6 +21,10 @@ export default function Shows() {
     useEffect(() => {
         services.getShows().then(res => setShows(res))
         if (cart.hotelName == '') navigate('/');
+
+        return () => {
+            setShows([]);
+        }
     }, [])
 
     // Cette fonction permet d'enregistrer le show dans le state global ainsi que son prix, pour mettre à jour le panier

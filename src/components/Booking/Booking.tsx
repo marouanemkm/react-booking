@@ -7,16 +7,15 @@ import { RootState } from '../../redux/store';
 import Hotel from '../Hotels/Hotel';
 import moment from 'moment'; 
 
-function Booking() {
+const Booking = () => {
     
     const [startDate, setStartDate] = useState<Date | null>(null);
     const [endDate, setEndDate] = useState<Date | null>(null);
-    const [nights, setNights] = useState<Number>(0);
+    const [nights, setNights] = useState<number>(0);
     const [error, setError] = useState<string>('');
 
     const startDateFinal = useSelector((state: RootState): any => { return state.date.startDate });
     const endDateFinal = useSelector((state: RootState): any => { return state.date.endDate });
-    const nightsFinal = useSelector((state: RootState): any => { return state.date.nights });
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -33,21 +32,26 @@ function Booking() {
 
         // Si les dates sont supérieur à la date du jour et que le nomrbe de nuits entre les deux dates n'est pas négatif ou null, c'est validé
         if (numberOfNights > 0 && (startDateConverted >= todayDate && endDateConverted >= todayDate)) setNights(numberOfNights);
+        dispatch({ type: 'addnights', nights: nights, startDate: startDate, endDate: endDate });
     }, [startDate, endDate]);
 
     const handleStartDate = (e: Date): void => setStartDate(e);
     const handleEndDate = (e: Date): void => setEndDate(e);
 
-    dispatch({ type: 'addnights', nights: nights, startDate: startDate, endDate: endDate });
+    console.log(startDateFinal);
+    console.log(endDateFinal);
+    console.log(nights);
+    
 
     // Cette fonction permet de valider le choix d'une date et d'un hotel, ou bien d'afficher une erreur
     const handleHotel = (hotel: any): void => {
         // Ici on dispatch nos variables pour les enregistrer dans le store
+        
         dispatch({ type: 'addhotel', hotelName: hotel.name, hotelPrice: hotel.price });
-        dispatch({ type: 'addtotalprice', totalPrice: hotel.price * nightsFinal });
+        dispatch({ type: 'addtotalprice', totalPrice: hotel.price * nights });
 
         // Ici on gère les erreurs concernant les dates
-        if (!startDateFinal && !endDateFinal) {
+        if (!startDate && !endDate) {
             setError('Veuillez chosir une date');
         } else if(!nights) {
             setError('Veuillez choisir une date valide ou supérieur à la date actuelle');
