@@ -7,9 +7,9 @@ export default function Home() {
             <div className="home">
                 <h2 className="home-title">Réservez votre hôtel ainsi que votre show<br />dès maintenant !</h2>
             </div>
-            <div className='booking-picker'>
+            {/* <div className='booking-picker'>
                 <Booking />
-            </div>
+            </div> */}
         </>
     );
 }

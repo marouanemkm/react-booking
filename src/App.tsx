@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import Shows from './components/Shows/Shows';
 import Cart from './components/Cart/Cart';
 import Order from './components/Order/Order';
+import Booking from './components/Booking/Booking';
 
 function App() {
 
@@ -16,8 +17,10 @@ function App() {
           <Navbar />
         </header>
 
+        <Home />
+
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Booking />} />
           <Route path='/shows' element={<Shows />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/order' element={<Order />} />

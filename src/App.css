@@ -5,6 +5,11 @@
     font-family: 'Lato', Helvetica, sans-serif;
 }
 
+.booking-picker {
+    margin: 50px auto;
+    text-align: center;
+}
+
 /* RESPONSIVE */
 
 @media only screen and (max-width: 414px) {

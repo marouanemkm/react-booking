@@ -55,15 +55,17 @@ const Booking = () => {
     return (
         <>
             <div className='calendar'>
-                <h2 className='calendar-title'>Choisissez vos dates et votre séjour :</h2>
+                <div className='calendar-title'>
+                    <h2>Choisissez vos dates et votre séjour :</h2>
+                </div>
                 <div className="select-date">
                     <div>
                         <p className='datepicker-label'>Date de départ du séjour</p>
-                        <DatePicker onChange={(e: Date) => handleStartDate(e)} value={startDate} isOpen={false} />
+                        <DatePicker className='start-date-picker' onChange={(e: Date) => handleStartDate(e)} value={startDate} isOpen={false} />
                     </div>
                     <div>
                         <p className='datepicker-label'>Date de fin du séjour</p>
-                        <DatePicker onChange={(e: Date) => handleEndDate(e)} value={endDate} isOpen={false} />
+                        <DatePicker className='end-date-picker' onChange={(e: Date) => handleEndDate(e)} value={endDate} isOpen={false} />
                     </div>
                 </div>
                 <h5 style={{color: 'red', margin: '20px'}}>{error}</h5>
