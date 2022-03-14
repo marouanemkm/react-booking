@@ -54,4 +54,8 @@
     .infos-order {
         text-align: left !important;
     }
+
+    .shows-cards {
+        align-items: center !important;
+    }
 }
